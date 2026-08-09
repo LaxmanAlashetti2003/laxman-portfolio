@@ -4,39 +4,15 @@ import { siteConfig } from "@/lib/seo-config";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // This is a single-page (one-pager) site, so the sitemap lists the
-  // homepage plus its in-page anchor sections. If additional routes are
-  // added later (e.g. /blog, /projects/[slug]), add entries here.
+  // This is a single-page site. Sitemap entries must be canonical URLs,
+  // so we only list the homepage here. In-page anchors like #about are
+  // not valid sitemap URLs and are ignored by search engines.
   return [
     {
-      url: siteConfig.url,
+      url: `${siteConfig.url}/`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 1,
-    },
-    {
-      url: `${siteConfig.url}/#projects`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.url}/#about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${siteConfig.url}/#skills`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${siteConfig.url}/#contact`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.5,
     },
   ];
 }

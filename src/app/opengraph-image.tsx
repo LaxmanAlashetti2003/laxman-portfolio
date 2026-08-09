@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/seo-config";
 
 export const runtime = "edge";
-export const alt = `${siteConfig.name} — MERN Stack Developer Portfolio`;
+export const alt = `${siteConfig.name} - Full-Stack Developer Portfolio`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,7 +32,7 @@ export default async function OpengraphImage() {
             marginBottom: 24,
           }}
         >
-          MERN Stack Developer
+          Full-Stack Developer
         </div>
         <div
           style={{
@@ -53,7 +53,7 @@ export default async function OpengraphImage() {
             color: "#a1a1aa",
           }}
         >
-          Next.js · React · Node.js · MongoDB · Express
+          React - Angular - Next.js - TypeScript - Node.js
         </div>
         <div
           style={{
@@ -62,7 +62,7 @@ export default async function OpengraphImage() {
             gap: 16,
           }}
         >
-          {["MongoDB", "Express", "React", "Node.js"].map((tech) => (
+          {["React", "Angular", "Next.js", "TypeScript"].map((tech) => (
             <div
               key={tech}
               style={{

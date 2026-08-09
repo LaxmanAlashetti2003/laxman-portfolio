@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 
 const NAV_LINKS = [
-  
-  { label: "About", href: "#about" },
+  // { label: "Home", href: "#home" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
@@ -42,12 +42,12 @@ export default function Navbar() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileOpen(false);
-    if (href === "#") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
     const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -67,8 +67,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.a
-            href="#"
-            onClick={(e) => handleClick(e, "#")}
+            href="#main-content"
+            onClick={(e) => handleClick(e, "#main-content")}
             className="text-white font-bold text-lg md:text-xl tracking-tight pointer-events-auto"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -129,6 +129,8 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 pointer-events-auto"
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             <motion.span
               animate={mobileOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
@@ -156,7 +158,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-black/90 backdrop-blur-2xl md:hidden flex flex-col items-center justify-center"
           >
-            <nav aria-label="Mobile" className="flex flex-col items-center gap-2">
+            <nav id="mobile-navigation" aria-label="Mobile" className="flex flex-col items-center gap-2">
               {NAV_LINKS.map((link, idx) => (
                 <motion.a
                   key={link.label}

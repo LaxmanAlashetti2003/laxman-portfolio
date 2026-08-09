@@ -8,20 +8,22 @@
  */
 export const siteConfig = {
   name: "Laxman Alashetti",
-  title: "Laxman Alashetti | MERN Stack & Full-Stack Developer",
+  title: "Laxman Alashetti | Full-Stack Developer | React, Angular & MERN",
   shortName: "Laxman Alashetti",
   description:
-    "Laxman Alashetti is a MERN stack developer specializing in Next.js, React, Node.js, MongoDB, and Express. View projects, skills, and experience in this developer portfolio.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://laxmanalashetti.vercel.app",
+    "Laxman Alashetti is a Full-Stack Developer experienced in React, Angular, Next.js, TypeScript, Node.js and MongoDB, building production SaaS platforms, dashboards and modern web applications.",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://laxman-portfolio-jade.vercel.app").replace(/\/$/, ""),
   ogImage: "/opengraph-image",
   keywords: [
     "Laxman Alashetti",
     "Full Stack Developer",
     "MERN Stack Developer",
+    "Angular Developer",
     "Next.js Developer",
     "React Developer",
     "Node.js Developer",
     "MongoDB Developer",
+    "TypeScript Developer",
     "Web Developer Portfolio",
     "Frontend Developer India",
     "JavaScript Developer",

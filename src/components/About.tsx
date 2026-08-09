@@ -7,28 +7,28 @@ const EXPERIENCE = [
   {
     role: "Frontend Software Engineer Intern",
     company: "Bhojsoft Solutions Pvt. Ltd.",
-    period: "Mar 2026 – Present",
+    period: "Mar 2026 - Present",
     points: [
       "Worked on production-scale SaaS platforms including Ximboa.com, Recruiter, Institute, Campus Drive and Super Admin Portal.",
-      "Learned Angular within 4 days and successfully contributed to an existing enterprise Angular project.",
-      "Developed complete Admin Dashboard modules with CRUD operations, search, pagination, export and integrated 25+ REST APIs.",
-      "Built an Indeed/LinkedIn-inspired multi-step Job Posting System using React, TypeScript, TipTap, Material UI and Framer Motion.",
+      "Learned Angular within 4 days and contributed to an existing enterprise Angular project.",
+      "Developed admin dashboard modules with CRUD operations, search, pagination, export and 25+ REST API integrations.",
+      "Built an Indeed and LinkedIn-inspired multi-step job posting system using React, TypeScript, TipTap, Material UI and Framer Motion.",
       "Created reusable React components and scalable frontend architecture for multiple production applications.",
-      "Designed and developed Career Counselling Report UI including Ability Profile, Orientation Profile, Coping Style, Roadmap and Recommendations.",
-      "Integrated Google Analytics, Firebase Analytics, Guest Token APIs, User Tracking and IP Tracking across multiple platforms.",
-      "Implemented responsive landing pages, authentication flows, SEO improvements, Canonical URLs and performance optimizations.",
-      "Migrated multiple JavaScript + Tailwind projects into TypeScript + SCSS while preserving existing business logic.",
-      "Collaborated closely with backend developers to handle changing APIs, frontend workflows and production deployments."
+      "Designed and developed a career counselling report UI including ability profile, orientation profile, coping style, roadmap and recommendations.",
+      "Integrated Google Analytics, Firebase Analytics, guest token APIs, user tracking and IP tracking across multiple platforms.",
+      "Implemented responsive landing pages, authentication flows, SEO improvements, canonical URLs and performance optimisations.",
+      "Migrated multiple JavaScript and Tailwind projects into TypeScript and SCSS while preserving existing business logic.",
+      "Collaborated closely with backend developers to handle changing APIs, frontend workflows and production deployments.",
     ],
   },
   {
     role: "Frontend Engineer Intern",
     company: "Katare Informatics, Solapur",
-    period: "Jan 2024 – Feb 2024",
+    period: "Jan 2024 - Feb 2024",
     points: [
       "Built responsive user interfaces using HTML, CSS, JavaScript and React.",
       "Converted Figma designs into pixel-perfect web pages.",
-      "Worked on live client projects while improving frontend development fundamentals."
+      "Worked on live client projects while improving frontend development fundamentals.",
     ],
   },
 ];
@@ -61,11 +61,23 @@ const fadeUp = {
 
 export default function About() {
   return (
-    <section id="about" aria-label="About Laxman Alashetti: experience and education" className="relative z-20 bg-[#0e0e0e] py-32 px-4 md:px-12 lg:px-24">
+    <section
+      id="about"
+      aria-label="About Laxman Alashetti: experience and education"
+      className="relative z-20 bg-[#0e0e0e] py-32 px-4 md:px-12 lg:px-24"
+    >
       <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mb-20">
+          <p className="text-sm tracking-[0.3em] uppercase text-zinc-500 mb-4">About</p>
+          <p className="text-lg md:text-xl text-zinc-400 leading-8">
+            Full-Stack Developer focused on building production web applications,
+            SaaS platforms and modern interfaces with React, Angular, Next.js,
+            TypeScript, Node.js and MongoDB.
+          </p>
+        </div>
 
-        {/* ── Experience ─────────────────────── */}
-        <motion.div
+        <motion.section
+          id="experience"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
@@ -76,15 +88,13 @@ export default function About() {
             <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20">
               <Briefcase size={20} className="text-blue-400" aria-hidden="true" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Professional Experience
+            </h2>
           </div>
 
           {EXPERIENCE.map((exp, idx) => (
-            <div
-              key={idx}
-              className="relative pl-8 border-l border-zinc-800 ml-4"
-            >
-              {/* Timeline dot */}
+            <div key={idx} className="relative pl-8 border-l border-zinc-800 ml-4">
               <div className="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full bg-blue-500 border-2 border-[#0e0e0e]" />
 
               <div className="pb-8">
@@ -97,8 +107,11 @@ export default function About() {
                 </span>
                 <ul className="space-y-2 mt-3">
                   {exp.points.map((pt, i) => (
-                    <li key={i} className="text-zinc-400 text-sm md:text-base leading-relaxed flex gap-2">
-                      <span className="text-zinc-600 mt-1 shrink-0">▸</span>
+                    <li
+                      key={i}
+                      className="text-zinc-400 text-sm md:text-base leading-relaxed flex gap-2"
+                    >
+                      <span className="text-zinc-600 mt-1 shrink-0">-</span>
                       {pt}
                     </li>
                   ))}
@@ -106,9 +119,8 @@ export default function About() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </motion.section>
 
-        {/* ── Education ──────────────────────── */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -119,7 +131,9 @@ export default function About() {
             <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
               <GraduationCap size={20} className="text-emerald-400" aria-hidden="true" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Education</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Education
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

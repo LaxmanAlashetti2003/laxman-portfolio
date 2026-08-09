@@ -11,6 +11,8 @@ const inter = Inter({
   display: "swap",
 });
 
+const canonicalUrl = `${siteConfig.url}/`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
+  authors: [{ name: siteConfig.author.name, url: canonicalUrl }],
   creator: siteConfig.author.name,
   publisher: siteConfig.author.name,
   applicationName: siteConfig.name,
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: siteConfig.url,
+    url: canonicalUrl,
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — MERN Stack Developer Portfolio`,
+        alt: `${siteConfig.name} - Full-Stack Developer Portfolio`,
       },
     ],
   },
@@ -80,10 +82,6 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-// JSON-LD: Person + WebSite + ProfilePage, matching the content actually
-// rendered on the page (About, Skills, Projects, Contact sections) so it
-// stays eligible for rich results instead of risking a structured-data
-// mismatch penalty.
 function StructuredData() {
   const personId = `${siteConfig.url}/#person`;
 
@@ -94,8 +92,8 @@ function StructuredData() {
         "@type": "Person",
         "@id": personId,
         name: siteConfig.author.name,
-        url: siteConfig.url,
-        jobTitle: "Full-Stack Developer (MERN)",
+        url: canonicalUrl,
+        jobTitle: "Full-Stack Developer",
         description: siteConfig.description,
         email: `mailto:${siteConfig.author.email}`,
         telephone: siteConfig.author.phone,
@@ -104,6 +102,7 @@ function StructuredData() {
           "JavaScript",
           "TypeScript",
           "React",
+          "Angular",
           "Next.js",
           "Node.js",
           "Express.js",
@@ -126,7 +125,7 @@ function StructuredData() {
       {
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
-        url: siteConfig.url,
+        url: canonicalUrl,
         name: siteConfig.name,
         description: siteConfig.description,
         inLanguage: "en",
@@ -135,7 +134,7 @@ function StructuredData() {
       {
         "@type": "ProfilePage",
         "@id": `${siteConfig.url}/#profilepage`,
-        url: siteConfig.url,
+        url: canonicalUrl,
         name: siteConfig.title,
         inLanguage: "en",
         isPartOf: { "@id": `${siteConfig.url}/#website` },
@@ -145,7 +144,7 @@ function StructuredData() {
         "@type": "CreativeWork",
         name: "Image Alchemy",
         description:
-          "AI-powered image editing web app built with Next.js, TypeScript, MongoDB, Cloudinary APIs, and Stripe — featuring AI restoration, inpainting, object removal, and background removal.",
+          "AI-powered image editing web app built with Next.js, TypeScript, MongoDB, Cloudinary APIs, and Stripe, featuring image restoration, inpainting, object removal and background removal.",
         creator: { "@id": personId },
         keywords: "Next.js, TypeScript, MongoDB, Cloudinary, Stripe",
       },
@@ -178,9 +177,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Preload the first hero frame: it's the canvas's first paint and
-            behaves like the page's LCP element, even though it's drawn via
-            JS rather than an <img> tag. */}
         <link
           rel="preload"
           as="image"
@@ -189,8 +185,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        {/* Skip link: invisible until focused, standard a11y + SEO pattern.
-            Does not alter default visual layout. */}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-white focus:text-black focus:text-sm focus:font-medium"

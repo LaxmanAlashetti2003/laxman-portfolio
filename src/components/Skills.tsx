@@ -7,25 +7,25 @@ const SKILL_GROUPS = [
     label: "Frontend",
     color: "from-blue-500 to-cyan-400",
     dotColor: "bg-blue-500",
-    skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "TypeScript", "TailwindCSS"],
+    skills: ["HTML", "CSS", "JavaScript", "React", "Angular", "Next.js", "TypeScript", "TailwindCSS"],
   },
   {
     label: "Backend",
     color: "from-emerald-500 to-teal-400",
     dotColor: "bg-emerald-500",
-    skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Socket.io"],
+    skills: ["Node.js", "Express.js", "REST APIs", "Socket.io"],
   },
   {
-    label: "Languages",
+    label: "Databases",
     color: "from-violet-500 to-purple-400",
     dotColor: "bg-violet-500",
-    skills: ["Java", "SQL", "JavaScript", "TypeScript"],
+    skills: ["MongoDB", "Firebase", "SQL"],
   },
   {
-    label: "Tools & Others",
+    label: "Tools & Services",
     color: "from-amber-500 to-orange-400",
     dotColor: "bg-amber-500",
-    skills: ["Git", "Cloudinary", "Stripe", "Tableau", "Prompt Engineering"],
+    skills: ["Git", "Cloudinary", "Stripe", "Analytics", "SEO"],
   },
 ];
 
@@ -46,7 +46,6 @@ export default function Skills() {
   return (
     <section id="skills" className="relative z-20 bg-[#121212] py-32 px-4 md:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +55,7 @@ export default function Skills() {
         >
           <p className="text-sm tracking-[0.3em] uppercase text-zinc-500 mb-3">Expertise</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            Skills & Technologies
+            Technical Skills
           </h2>
           <div className="w-20 h-px bg-gradient-to-r from-transparent via-zinc-500 to-transparent mx-auto mt-6" />
         </motion.div>
@@ -76,7 +75,9 @@ export default function Skills() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className={`w-2.5 h-2.5 rounded-full ${group.dotColor}`} />
-                <h3 className={`text-lg font-semibold bg-gradient-to-r ${group.color} bg-clip-text text-transparent`}>
+                <h3
+                  className={`text-lg font-semibold bg-gradient-to-r ${group.color} bg-clip-text text-transparent`}
+                >
                   {group.label}
                 </h3>
               </div>
